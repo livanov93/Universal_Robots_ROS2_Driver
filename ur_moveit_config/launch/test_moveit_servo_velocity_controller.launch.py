@@ -260,7 +260,8 @@ def generate_launch_description():
 
     kinematics_yaml = load_yaml("ur_moveit_config", "config/kinematics.yaml")
 
-    joint_limits_yaml = {"robot_description_planning": joint_limit_params}
+    joint_limits_yaml = load_yaml("ur_moveit_config", "config/ur5e/joint_limits.yaml")
+    robot_description_planning = {"robot_description_planning": joint_limits_yaml}
 
     # RViz
     rviz_config_file = PathJoinSubstitution(
@@ -277,8 +278,8 @@ def generate_launch_description():
         parameters=[
             robot_description,
             robot_description_semantic,
+            robot_description_planning,
             kinematics_yaml,
-            joint_limits_yaml,
         ],
     )
 
@@ -290,10 +291,10 @@ def generate_launch_description():
         parameters=[
             robot_description,
             robot_description_semantic,
+            robot_description_planning,
             kinematics_yaml,
             pose_tracking_params,
             servo_params,
-            joint_limits_yaml,
         ],
     )
 
