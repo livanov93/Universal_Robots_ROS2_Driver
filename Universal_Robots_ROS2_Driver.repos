@@ -5,16 +5,16 @@ repositories:
     version: galactic-devel
   ros2_control:
     type: git
-    url: https://github.com/ros-controls/ros2_control.git
-    version: master
+    url: https://github.com/livanov93/ros2_control.git
+    version: livanov/simulate_disconnected_driver
   ros2_control_demos:
     type: git
-    url: https://github.com/ros-controls/ros2_control_demos.git
-    version: master
+    url: https://github.com/livanov93/ros2_control_demos.git
+    version: livanov/simulated_disconnected_driver
   ros2_controllers:
     type: git
-    url: https://github.com/ros-controls/ros2_controllers.git
-    version: master
+    url: https://github.com/livanov93/ros2_controllers.git
+    version: livanov/jtc_improvements
   Universal_Robots_Client_Library:
     type: git
     url: https://github.com/UniversalRobots/Universal_Robots_Client_Library.git
