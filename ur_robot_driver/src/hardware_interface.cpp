@@ -349,22 +349,22 @@ CallbackReturn URPositionHardwareInterface::on_activate(const rclcpp_lifecycle::
     stop_bits = std::stoi(info_.hardware_parameters["tool_stop_bits"]);
     tool_comm_setup->setStopBits(static_cast<uint32_t>(stop_bits));
 
-    int rx_idle_chars;
+    float rx_idle_chars;
     // Number of idle chars for the RX unit used for tool communication. Will be set as soon as the UR-Program on the
     // robot is started. Valid values: min=1.0, max=40.0
     //
     // Note: This parameter is only evaluated, when the parameter "use_tool_communication"
     // is set to TRUE.  Then, this parameter is required.
-    rx_idle_chars = std::stoi(info_.hardware_parameters["tool_rx_idle_chars"]);
+    rx_idle_chars = std::stof(info_.hardware_parameters["tool_rx_idle_chars"]);
     tool_comm_setup->setRxIdleChars(rx_idle_chars);
 
-    int tx_idle_chars;
+    float tx_idle_chars;
     // Number of idle chars for the TX unit used for tool communication. Will be set as soon as the UR-Program on the
     // robot is started. Valid values: min=0.0, max=40.0
     //
     // Note: This parameter is only evaluated, when the parameter "use_tool_communication"
     // is set to TRUE.  Then, this parameter is required.
-    tx_idle_chars = std::stoi(info_.hardware_parameters["tool_tx_idle_chars"]);
+    tx_idle_chars = std::stof(info_.hardware_parameters["tool_tx_idle_chars"]);
     tool_comm_setup->setTxIdleChars(tx_idle_chars);
   }
 
