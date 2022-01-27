@@ -318,7 +318,7 @@ CallbackReturn URPositionHardwareInterface::on_activate(const rclcpp_lifecycle::
     // parameter is only evaluated, when the parameter "use_tool_communication" is set to TRUE.
     // Then, this parameter is required.}
     tool_voltage = std::stoi(info_.hardware_parameters["tool_voltage"]);
-
+    RCLCPP_INFO(rclcpp::get_logger("URPositionHardwareInterface"), "Tool voltage: '%d'", tool_voltage);
     tool_comm_setup->setToolVoltage(static_cast<urcl::ToolVoltage>(tool_voltage));
 
     using ParityT = std::underlying_type<urcl::Parity>::type;
@@ -329,6 +329,7 @@ CallbackReturn URPositionHardwareInterface::on_activate(const rclcpp_lifecycle::
     // Note: This parameter is only evaluated, when the parameter "use_tool_communication"
     // is set to TRUE.  Then, this parameter is required.
     parity = std::stoi(info_.hardware_parameters["tool_parity"]);
+    RCLCPP_INFO(rclcpp::get_logger("URPositionHardwareInterface"), "Tool parity: '%d'", parity);
     tool_comm_setup->setParity(static_cast<urcl::Parity>(parity));
 
     int baud_rate;
@@ -338,6 +339,8 @@ CallbackReturn URPositionHardwareInterface::on_activate(const rclcpp_lifecycle::
     // Note: This parameter is only evaluated, when the parameter "use_tool_communication"
     // is set to TRUE.  Then, this parameter is required.
     baud_rate = std::stoi(info_.hardware_parameters["tool_baud_rate"]);
+    RCLCPP_INFO(rclcpp::get_logger("URPositionHardwareInterface"), "Tool baud rate: '%d'", baud_rate);
+
     tool_comm_setup->setBaudRate(static_cast<uint32_t>(baud_rate));
 
     int stop_bits;
@@ -347,6 +350,8 @@ CallbackReturn URPositionHardwareInterface::on_activate(const rclcpp_lifecycle::
     // Note: This parameter is only evaluated, when the parameter "use_tool_communication"
     // is set to TRUE.  Then, this parameter is required.
     stop_bits = std::stoi(info_.hardware_parameters["tool_stop_bits"]);
+    RCLCPP_INFO(rclcpp::get_logger("URPositionHardwareInterface"), "Tool stop bits: '%d'", stop_bits);
+
     tool_comm_setup->setStopBits(static_cast<uint32_t>(stop_bits));
 
     float rx_idle_chars;
@@ -356,6 +361,8 @@ CallbackReturn URPositionHardwareInterface::on_activate(const rclcpp_lifecycle::
     // Note: This parameter is only evaluated, when the parameter "use_tool_communication"
     // is set to TRUE.  Then, this parameter is required.
     rx_idle_chars = std::stof(info_.hardware_parameters["tool_rx_idle_chars"]);
+    RCLCPP_INFO(rclcpp::get_logger("URPositionHardwareInterface"), "Tool receive idle chars: '%f'", rx_idle_chars);
+
     tool_comm_setup->setRxIdleChars(rx_idle_chars);
 
     float tx_idle_chars;
@@ -365,6 +372,8 @@ CallbackReturn URPositionHardwareInterface::on_activate(const rclcpp_lifecycle::
     // Note: This parameter is only evaluated, when the parameter "use_tool_communication"
     // is set to TRUE.  Then, this parameter is required.
     tx_idle_chars = std::stof(info_.hardware_parameters["tool_tx_idle_chars"]);
+    RCLCPP_INFO(rclcpp::get_logger("URPositionHardwareInterface"), "Tool transmit idle chars: '%f'", tx_idle_chars);
+
     tool_comm_setup->setTxIdleChars(tx_idle_chars);
   }
 
